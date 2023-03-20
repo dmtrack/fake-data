@@ -12,15 +12,15 @@ export const getRandomValue = (random: PRNG, array: string[]) => {
     return array[randomIndex];
 };
 
-const fakerator = (seed: number, language: Language) => {
-    let region;
-    if (language === 'ru') region = 'ru-RU';
-    else if (language === 'ge') region = 'ge-GE';
-    else if (language === 'us') region = '';
-    const fakerator = Fakerator(region);
+const fakeCreator = (seed: number, language: Language) => {
+    let area;
+    if (language === 'ru') area = 'ru-RU';
+    else if (language === 'de') area = 'de-DE';
+    else if (language === 'us') area = '';
+    const fake = Fakerator(area);
     // @ts-ignore
-    fakerator.seed(seed);
-    return fakerator;
+    fake.seed(seed);
+    return fake;
 };
 
 const getRandomId = (random: PRNG) => {
@@ -29,23 +29,65 @@ const getRandomId = (random: PRNG) => {
     return `${Math.round(min - 0.5 + random() * (max - min + 1))}`;
 };
 
-const getName = (seed: PRNG, language: Language) => {};
+const getRandomName = (seed: string, language: Language) => {
+    const { names } = fakeCreator(+seed, language);
+    const random = seedRandom(seed);
+    const gender = !!Math.floor(random() * 2) ? 'm' : 'f';
+    const genderType = {
+        m: `${names.lastNameM()} ${names.firstNameM()}`,
+        f: `${names.lastNameF()} ${names.firstNameF()}`,
+    };
+    if (language !== 'ru') return genderType[gender];
+    const surname = {
+        m: getRandomValue(random, data.ru.surnameM),
+        f: getRandomValue(random, data.ru.surnameF),
+    };
+    return `${genderType[gender]} ${surname[gender]}`;
+};
+const getCityWithPrefix = (random: PRNG, city: string, language: Language) => {
+    if (language !== 'ru') return city;
+    const prefixTypes = ['город', 'ГОРОД', 'Г.', 'г.', 'гор.', ''];
+    let type = prefixTypes[Math.floor(random() * prefixTypes.length)];
+    if (!type.includes('.')) {
+        type += ' ';
+    }
+    return type + city;
+};
 
 const getRandomStreet = (seed: string, language: Language) => {
     let street;
     const random = seedRandom(seed);
     switch (language) {
-        case 'ru':
+        case 'ru' || 'us':
             street = getRandomValue(random, data[language].streets);
-        case 'us':
-            street = getRandomValue(random, data[language].streets);
+        case 'de':
+            street = fakeCreator(Number(seed), language).address.streetName();
     }
+    return street;
+};
+
+const getRandomHouse = (random: PRNG, language: Language) => {
+    const houseNumber = Math.floor(random() * 200 + 1);
+    if (language !== 'ru') return houseNumber;
+    return `дом ${houseNumber}`;
+};
+
+const getPhone = (seed: string, language: Language) => {
+    const fake = fakeCreator(+seed, language);
+    const phone = fake.phone.number();
+    return language !== 'ru' ? phone : '8' + phone;
 };
 
 export const fakeUser = (seed: string, language: Language): IUser => {
     const random = seedRandom(seed);
+    const fake = fakeCreator(+seed, language);
     const id = getRandomId(random);
+    const name = getRandomName(seed, language);
+    const city = getCityWithPrefix(random, fake.address.city(), language);
     const street = getRandomStreet(seed, language);
-
-    return { id: id, name: 'user', address: 'Ural', phone: '+79220264686' };
+    const state = getRandomValue(random, data[language].states);
+    const house = getRandomHouse(random, language);
+    const phone = getPhone(seed, language);
+    const fullAddress = `${state}, ${city}, ${street}, ${house}`;
+    return { id: id, name: name, address: fullAddress, phone: phone };
 };

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getValueRandom } from './app/helpers/seed';
+import { fakeUser, getName, getRandomStreet } from './app/helpers/seed';
 import Post from './app/Post';
 import Fakerator from 'fakerator';
 import { Language } from './app/types';
@@ -32,26 +32,7 @@ function App() {
     //     }
     // }
     // const data = window.addEventListener('scroll', handleScroll);
-    const fakeratorCreator = (seed: number, language: Language) => {
-        let region;
-        if (language === 'ru') region = 'ru-RU';
-        else if (language === 'ge') region = 'ge-GE';
-        else if (language === 'us') region = '';
-        const fakerator = Fakerator(region);
-        // @ts-ignore
-        fakerator.seed(seed);
-        return fakerator;
-    };
-
-    const getPhone = (seed: string, lang: Language) => {
-        const fakerator = fakeratorCreator(+seed, lang);
-        const address = fakerator.address.street();
-        // return lang === 'ru' ? '8' + phone : phone;
-        return address;
-    };
-
-    console.log(getPhone('123', 'us'));
-
+    console.log(fakeUser('1235777', 'ru'));
     return <div>TABLE</div>;
 }
 

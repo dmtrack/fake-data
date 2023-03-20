@@ -1,4 +1,4 @@
-export type Language = 'ru' | 'us' | 'ge';
+export type Language = 'ru' | 'us' | 'de';
 
 export interface IUser {
     id: string;
