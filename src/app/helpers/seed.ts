@@ -43,10 +43,6 @@ const getRandomName = (seed: string, language: Language) => {
     return `${genderType[gender]} ${surname[gender]}`;
 };
 const getCityWithPrefix = (random: PRNG, city: string, language: Language) => {
-    if (language === 'us') {
-        city = data[language].cities[0];
-        return city;
-    }
     if (language !== 'ru') return city;
     const cityTypes = [
         'г.',

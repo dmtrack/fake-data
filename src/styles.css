@@ -29,3 +29,8 @@ body {
     font-family: 'Rubik', sans-serif;
     color: #343a40;
 }
+
+.btn-icon {
+    height: 48px;
+    width: 48px;
+}

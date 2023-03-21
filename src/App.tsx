@@ -3,12 +3,11 @@ import { UsersTable } from './components/UsersTable';
 import { getPage } from './app/helpers/seed';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Language, IUser } from '../src/app/types';
-import t from '../src/app/base/translation.json';
 import { STEP } from '../src/app/helpers/constants';
 import './styles.css';
 
 function App() {
-    const [seed, setSeed] = useState('123');
+    const [seed, setSeed] = useState('1');
     const [lang, setLang] = useState<Language>('ru');
     const [errors, setErrors] = useState('0');
     const [users, setUsers] = useState<IUser[]>([]);
@@ -20,11 +19,15 @@ function App() {
             if (!loadedPages.current.includes(loadingPage)) {
                 loadedPages.current.push(`${start}:${end}`);
                 const currentUsers = getPage(seed, lang, start, end, +errors);
+                console.log(currentUsers, 'current');
                 setUsers((prev) => [...prev, ...currentUsers]);
+                console.log(users, 'newusers');
             }
+            console.log(loadedPages, loadingPage);
         },
         [seed, lang, loadedPages, errors]
     );
+    console.log(users);
 
     useEffect(() => {
         setUsers([]);
