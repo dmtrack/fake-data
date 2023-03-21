@@ -1,51 +1,58 @@
-import { useState } from 'react';
-import { fakeUser, getName, getRandomStreet } from './app/helpers/seed';
-import Post from './app/Post';
-import Fakerator from 'fakerator';
-import { Language } from './app/types';
-import seedRandom, { PRNG } from 'seedrandom';
+import { Form } from './components/Form';
+import { UsersTable } from './components/UsersTable';
+import { fakeUser } from './app/helpers/seed';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { Language, IUser } from '../src/app/types';
+import t from '../src/app/base/translation.json';
+import { faker } from '@faker-js/faker';
 
 function App() {
-    // let sampleText =
-    //     'lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ';
-    // let postsPerPage = 20;
-    // let addedPosts = 10;
+    // const [seed, setSeed] = useState('1');
+    // const [lang, setLang] = useState<Language>('ru');
+    // const [errors, setErrors] = useState('0');
+    // const [users, setUsers] = useState<IUser[]>([]);
+    // let loadedPages = useRef<string[]>([]);
 
-    // const [posts, setPosts] = useState<number[]>([
-    //     ...Array(postsPerPage).keys(),
-    // ]);
+    // const generatePage = useCallback(
+    //     (start: number, end: number) => {
+    //         const loadingPage = `${start}:${end}`;
+    //         if (!loadedPages.current.includes(loadingPage)) {
+    //             loadedPages.current.push(`${start}:${end}`);
+    //             const currentUsers = getPage(seed, lang, start, end, +errors);
+    //             setUsers((prev) => [...prev, ...currentUsers]);
+    //         }
+    //     },
+    //     [seed, lang, loadedPages, errors]
+    // );
 
-    // let postNumber: number = postsPerPage;
+    // useEffect(() => {
+    //     setUsers([]);
+    //     loadedPages.current = [];
+    //     generatePage(0, 10 * 2);
+    // }, [loadedPages, generatePage]);
 
-    // function handleScroll() {
-    //     let isAtBottom =
-    //         document.documentElement.scrollHeight -
-    //             document.documentElement.scrollTop <=
-    //         document.documentElement.clientHeight;
+    console.log(fakeUser('3344433', 'us'));
 
-    //     if (isAtBottom) {
-    //         postNumber += addedPosts;
-    //         setPosts((prevState): number[] => [
-    //             ...prevState,
-    //             ...[...Array(postNumber).keys()],
-    //         ]);
-    //     }
-    // }
-    // const data = window.addEventListener('scroll', handleScroll);
-    console.log(fakeUser('1235777', 'ru'));
-    return <div>TABLE</div>;
+    return (
+        <div>
+            {/* <h1 className='bold text-5xl text-center'>
+                {t['Generate'][lang]}{' '}
+                <span className='text-sky-600'>{t['demo'][lang]}</span>{' '}
+                {t['Users'][lang]}!
+            </h1>
+            <Form
+                seed={seed}
+                setSeed={setSeed}
+                lang={lang}
+                setLang={setLang}
+                errors={errors}
+                setErrors={setErrors}
+                users={users}
+            />
+            <UsersTable users={users} lang={lang} generatePage={generatePage} /> */}
+            task 5
+        </div>
+    );
 }
-
-// for (var i = 0; i < 10; i++) {
-//     console.log({
-//         country: fakerator.address.country(),
-//         countryCode: fakerator.address.countryCode(),
-//         state: fakerator.address.state(),
-//         stateAbbr: fakerator.address.stateAbbr(),
-//         city: fakerator.address.city(),
-//         address: fakerator.address.street(),
-//         zip: fakerator.address.postCode(),
-//         geoLocation: fakerator.address.geoLocation(),
-//     });
 
 export default App;

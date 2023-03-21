@@ -1,4 +1,4 @@
-export type Language = 'ru' | 'us' | 'de';
+export type Language = 'ru' | 'us' | 'fr';
 
 export interface IUser {
     id: string;
@@ -6,3 +6,5 @@ export interface IUser {
     phone: string;
     address: string;
 }
+
+export type fieldType = 'id' | 'name' | 'address' | 'phone';

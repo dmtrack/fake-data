@@ -1,0 +1,57 @@
+{
+    "Generate": {
+        "ru": "Создайте",
+        "us": "Generate",
+        "fr": "Generować"
+    },
+    "demo": {
+        "ru": "демо",
+        "us": "demo",
+        "fr": "demo"
+    },
+    "Users": {
+        "ru": "Пользователей",
+        "us": "Users",
+        "fr": "Użytkownicy"
+    },
+    "Number of errors": {
+        "ru": "Количество ошибок",
+        "us": "Number of errors",
+        "fr": "Liczba błędów"
+    },
+    "Seed": {
+        "ru": "Уникальный код генерации",
+        "us": "Seed",
+        "fr": "Seed"
+    },
+    "Random seed": {
+        "ru": "Случайный код",
+        "us": "Random seed",
+        "fr": "Losowe seed"
+    },
+    "Download CSV": {
+        "ru": "Скачать CSV",
+        "us": "Download CSV",
+        "fr": "Pobierz CSV"
+    },
+    "Name": {
+        "ru": "Имя",
+        "us": "Name",
+        "fr": "Nazwa"
+    },
+    "Address": {
+        "ru": "Адрес",
+        "us": "Address",
+        "fr": "Adres"
+    },
+    "Phone": {
+        "ru": "Телефон",
+        "us": "Phone",
+        "fr": "Telefon"
+    },
+    "integer (from 0 to 15 symbols)": {
+        "ru": "целое число (от 0 до 15 символов)",
+        "us": "integer (from 0 to 15 symbols)",
+        "fr": "liczba całkowita (od 0 do 15 symboli)"
+    }
+}
