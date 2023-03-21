@@ -34,7 +34,7 @@ export const UsersTable: FC<UsersTableProps> = ({
         const user = users[index];
         return (
             <div
-                className='grid grid-cols-10 gap-3 items-center border-b justify-center'
+                className='grid grid-cols-10 gap-5 items-center border justify-center'
                 style={style}>
                 <div className='col-span-1 text-center'>{index + 1}</div>
                 <div className='col-span-2'>{user.name}</div>
@@ -51,9 +51,9 @@ export const UsersTable: FC<UsersTableProps> = ({
 
     return (
         <div
-            className='border border-sky-600 mx-[10%] rounded mb-5 min-w-[700px]'
+            className=' border-sky-600 mx-[10%] rounded mb-5 min-w-[700px]'
             ref={tableContainerRef}>
-            <div className='grid grid-cols-10 bg-sky-600 text-white items-center h-8'>
+            <div className='grid grid-cols-10 bg-teal-500 text-white items-center h-8'>
                 <div className='col-span-1 text-center'>#</div>
                 <div className='col-span-2 text-center'>{t['Name'][lang]}</div>
                 <div className='col-span-3 text-center'>

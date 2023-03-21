@@ -59,9 +59,9 @@ export const Form: FC<FormProps> = ({
                     startAdornment={
                         <img className='mr-[35%]' width={30} alt='globe' />
                     }>
-                    <MenuItem value='fr'>RUS</MenuItem>
-                    <MenuItem value='ru'>USA</MenuItem>
-                    <MenuItem value='us'>PL</MenuItem>
+                    <MenuItem value='ru'>RU</MenuItem>
+                    <MenuItem value='fr'>FR</MenuItem>
+                    <MenuItem value='us'>US</MenuItem>
                 </Select>
 
                 <div className='my-4'>

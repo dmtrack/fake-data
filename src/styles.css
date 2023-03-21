@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /*
 SPACING SYSTEM (px)
 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
@@ -22,14 +26,6 @@ GREY COLOR: #343a40;
 }
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Rubik', sans-serif;
     color: #343a40;
-}
-
-.post {
-    text-align: center;
-    background-color: lightblue;
-    border-radius: 15px;
-    padding: 10px;
-    margin: 10px;
 }

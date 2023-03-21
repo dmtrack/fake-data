@@ -1,3 +1,4 @@
+import { fieldType } from './../types';
 import data from '../base/base.json';
 import seedRandom, { PRNG } from 'seedrandom';
 import Fakerator from 'fakerator';
@@ -112,4 +113,54 @@ export const fakeUser = (seed: string, language: Language): IUser => {
     const phone = getPhone(seed, language);
     const fullAddress = `${state}, ${city}, ${street}, ${house}`;
     return { id: id, name: name, address: fullAddress, phone: phone };
+};
+
+const generateErrors = (
+    errors: number,
+    user: IUser,
+    seed: string,
+    language: Language
+) => {
+    const letters = data[language].letters.split('');
+    const userKeys = Object.keys(user) as fieldType[];
+    for (let i = 0; i < errors; i++) {
+        const random = seedRandom(seed + i);
+        if (random() > errors) continue;
+        const randomLetter = letters[Math.floor(random() * letters.length)];
+        const key = userKeys[Math.floor(random() * userKeys.length)];
+        const value = user[key].split('');
+        const letterIndex = Math.floor(random() * value.length);
+        if (value[letterIndex] === ' ') {
+            errors++;
+            continue;
+        }
+        value[letterIndex] = randomLetter;
+        user[key] = value.join('');
+    }
+    return user;
+};
+
+export const getPage = (
+    customSeed: string,
+    language: Language,
+    start: number,
+    end: number,
+    errors: number
+): IUser[] => {
+    const users = [];
+    if (!customSeed) {
+        customSeed = '123456789';
+    }
+    for (let i = start; i < end; i++) {
+        const seed = customSeed + i;
+        const user = generateErrors(
+            errors,
+            fakeUser(seed, language),
+            seed,
+            language
+        );
+        users.push(user);
+    }
+
+    return users;
 };

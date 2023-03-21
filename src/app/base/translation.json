@@ -1,8 +1,8 @@
 {
     "Generate": {
         "ru": "Создайте",
-        "us": "Generate",
-        "fr": "Generować"
+        "us": "Create",
+        "fr": "Creer"
     },
     "demo": {
         "ru": "демо",
@@ -12,46 +12,46 @@
     "Users": {
         "ru": "Пользователей",
         "us": "Users",
-        "fr": "Użytkownicy"
+        "fr": "utilisateur"
     },
     "Number of errors": {
-        "ru": "Количество ошибок",
+        "ru": "Число ошибок",
         "us": "Number of errors",
-        "fr": "Liczba błędów"
+        "fr": "Nombre d'erreurs"
     },
     "Seed": {
-        "ru": "Уникальный код генерации",
+        "ru": "Код генерации",
         "us": "Seed",
         "fr": "Seed"
     },
     "Random seed": {
         "ru": "Случайный код",
         "us": "Random seed",
-        "fr": "Losowe seed"
+        "fr": "Aléatoire seed"
     },
     "Download CSV": {
         "ru": "Скачать CSV",
         "us": "Download CSV",
-        "fr": "Pobierz CSV"
+        "fr": "Télécharger  CSV"
     },
     "Name": {
         "ru": "Имя",
         "us": "Name",
-        "fr": "Nazwa"
+        "fr": "Nom"
     },
     "Address": {
         "ru": "Адрес",
         "us": "Address",
-        "fr": "Adres"
+        "fr": "Adresse"
     },
     "Phone": {
         "ru": "Телефон",
         "us": "Phone",
-        "fr": "Telefon"
+        "fr": "Téléphone"
     },
     "integer (from 0 to 15 symbols)": {
         "ru": "целое число (от 0 до 15 символов)",
         "us": "integer (from 0 to 15 symbols)",
-        "fr": "liczba całkowita (od 0 do 15 symboli)"
+        "fr": "nombre entier (entre 0 et 15 caractères)"
     }
 }
