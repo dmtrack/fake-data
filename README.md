@@ -1,6 +1,6 @@
 ## fake-data
 
-[https://fake-users-5t6b.onrender.com/](https://fake-users-5t6b.onrender.com/)
+[deploy link](https://fake-users-5t6b.onrender.com/)
 
 ### Description
 
