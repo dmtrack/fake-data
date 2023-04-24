@@ -7,6 +7,7 @@
 This project is one of the iTransition's internship tasks.
 Here you can input custom value and get repeatable - random data result
 Also, its possible to exportdata to a CSV file and change localization
+Purpose: to learn about seeds
 
 ### Stack
 
